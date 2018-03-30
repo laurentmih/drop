@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>drop</title>
+
+    <script>if (typeof module === 'object') {window.module = module; module = 
+undefined;}</script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header" data-toggle="collapse" href="#logDiv">
+              <div class="row">
+                <div class="col-sm-6">
+                  <span class="align-middle">Configuration</span>
+                </div>
+                <div class="col-sm-6">
+                  <a role="button" class="btn btn-success btn-sm float-right syncing" id="syncing">syncing</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form id="watchform">
+                <div class="form-group">
+                  <label for="localpath">Path to watch:</label>
+                  <input type="text" class="form-control" placeholder="Path to watch" name="localpath" id="localpath" required>
+                  <!-- <small class="form-text text-muted">Some help text lmayo</small> -->
+                </div>
+                <div class="form-group">
+                  <label for="remotepath">Remote path:</label>
+                  <input type="text" class="form-control" placeholder="Path on the remote server" name="remotepath" id="remotepath" required>
+                </div>
+                <div class="form-group">
+                  <label for="remotehost">Remote host:</label>
+                  <input type="text" class="form-control" placeholder="IP address of remote host" name="remotehost" id="remotehost" required>
+                </div>
+                <div class="form-group">
+                  <label for="remoteuser">Remote user:</label>
+                  <input type="text" class="form-control" placeholder="User to log in with on the remote server" name="remoteuser" id="remoteuser" required>
+                </div>
+                <!-- <div class="form-group">
+                  <label for="ignorefile">Ignore file (optional):</label>
+                  <input type="text" class="form-control" placeholder="File that contains regexes for files you want to ignore" name="ignorefile" id="ignorefile">
+                </div> -->
+                <div class="btn-group" role="group" aria-label="Control button group">
+                  <button type="submit" class="btn btn-primary" id="submitbutton">Start</button>
+                  <button id="killbutton" class="btn btn-danger disabled" >Stop</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card border-primary logcard">
+            <div class="card-header" data-toggle="collapse" href="#logDiv">
+              <div class="row">
+                <div class="col-sm-6">
+                  <span class="align-middle">Log output <small class="text-muted">Click to show log</small></span>
+                </div>
+                <div class="col-sm-6">
+                  <a role="button" class="btn btn-primary btn-sm float-right" style="color:white;" id="clearlog">Clear log</a>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="logDiv">
+              <div class="card-body" id="logBody">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

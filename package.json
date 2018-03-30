@@ -1,0 +1,31 @@
+{
+  "name": "drop",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Simple BYOS public folder sync utility",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build"
+  },
+  "repository": "https://github.com/laurentmih/drop",
+  "author": "Laurent H",
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "dependencies": {
+    "npm": "^5.8.0"
+  },
+  "build": {
+    "appId": "com.laurenth.drop",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        }
+      ]
+    }
+  }
+}

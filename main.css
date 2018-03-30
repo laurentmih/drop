@@ -1,0 +1,29 @@
+#logBody {
+	height: 200px;
+	overflow: scroll;
+}
+
+.card {
+	margin-top: 50px;
+}
+
+@-webkit-keyframes blink {
+    0% {
+           background-color: rgba(40,167,69,1)
+    }
+    50% {
+           background-color: rgba(40,167,69,0.5)
+    }
+    100% {
+           background-color: rgba(40,167,69,1)
+    }
+}
+
+ .syncing {
+    color: white !important;
+    visibility: hidden;
+    -webkit-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+    -webkit-animation:blink normal 1.5s infinite ease-in-out;
+    /* Webkit */
+}
