@@ -1,23 +1,20 @@
-# Dropbox Public Folder semi-fix
-Dropbox used to offer a Public folder. This was an awesome thing: drop a file or folder in it, wait for it to sync and it would be instantly, publicly accessible. They stopped supporting this. This script is here to fix that, partially anyways. It watches a folder on your current machine, and upon changes `rsync`s it to a public server you specify.
+# Description
+ElectronJS-powered home-grown alternative to the Public Folder-functionality that Dropbox used to provide, now sort-of-does-but-not-really-anymore.
 
 ## Requirements
-You'll need to install `fswatch`, usually fixed with a simple `brew install fswatch`.
-You'll also need to have access to some kind of public-facing webserver, ideally with a passwordless (SSH-key based) login.
+Only runs on macOS. Uses `rsync`.  
+Depends on `fswatch`, which can be installed using `brew install fswatch`.  
+Requires you to have your own server with a publicly accessible folder (usually something like `/var/www/html`), and a user that can write to it, with password-less login (i.e. with SSH keys) enabled.
 
-## Usage
-Make sure you've `chmod +x` the script. Rename it to whatever you like. This example assumes you've called it `dropbox-alt.sh`. Then:
-```
-./dropbox-alt.sh -f /path/to/folder/to/watch/ -r /path/to/remote/folder -u user -h host
-```
-If you need rsync to ignore certain files, you can pass the `-i` flag and specify a file that contains the ignore regexes. Really simple, works just like `.gitignore` does.
+## Use cases
+In my case, it's useful during web development. Write some `.js` file, upload it publicly and include on whichever page you're working on. Quick edits are rapidly synced to the cloud.  
+Basically a useful tool when you're quick-fix debugging something.
 
-### If you have an SSH `config` file
-You can pass an additional flag `-s` with the SSH shortcut, then you don't have to pass the `-u` and `-h` flags. If `vps` were in your SSH conf:
-```
-./dropbox-alt.sh -f /path/to/folder/to/watch/ -r /path/to/remote/folder -s vps
-```
+## Disclaimers
+Uses `rsync` and `fswatch`. 
 
-## Rant
-Dropbox incessantly wages a war against their own users. Over the years, they changed this public folder functionality. First, they added all kinds of JavaScript trash to place the file in a "viewer", I suppose to get better tracking stats on their users. Then this past year, they announced they were fully stopping the "Public" folder functionality altogether.
-After their [seriously concerning shenanigans](http://applehelpwriter.com/2016/07/28/revealing-dropboxs-dirty-little-security-hack/) on macOS to gain permissions (what the fuck Dropbox?), this was the final reason for me to remove Dropbox entirely from my machine. Here is how to replace at least part of the functionality.
+## How to use
+Should be fairly self-explanatory. Provide the local folder, remote folder to sync to, the host/IP and username to log in with. Hit start when you're ready to go.
+
+## Debugging
+There's a log at the bottom, click to expand.
