@@ -1,5 +1,5 @@
 # Description
-ElectronJS-powered home-grown alternative to the Public Folder-functionality that Dropbox used to provide, now sort-of-does-but-not-really-anymore.
+ElectronJS-powered home-grown alternative to the Public Folder-functionality that Dropbox used to provide, now sort-of-does-but-not-really-anymore. To download, head over to the [releases](https://github.com/laurentmih/drop/releases/tag/v1.0.0-beta1) page.
 
 ## Requirements
 Only runs on macOS. Uses `rsync`.  
